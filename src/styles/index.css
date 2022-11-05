@@ -1,3 +1,81 @@
-/* 
-    General Styles
-*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+body, .navbar {
+    background-color: black;
+}
+
+h1, h2, h4, h5, span {
+    font-family: 'Righteous';
+}
+
+.navbar-brand {
+    text-align: center;
+}
+
+.btn.btn-outline-dark{
+    color: #FFD000;
+    border-color:#FFD000;
+}
+
+.btn-warning {
+    background-color: #FFD000;
+    border-color: #FFD000;
+}
+
+.favourites {
+    width: 155px;
+}
+
+.trash {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.trash:hover, .trash:active {
+    background-color: #FFD000;
+}
+
+h2 {
+    color: #FFD000;
+}
+
+h5{
+    color: #212529;
+}
+
+.card-img-top {
+    height: 20rem;
+    object-fit: cover;
+    object-position: top;
+}
+
+.card-holder {
+    width: 20rem;  
+}
+
+/* Barra scroll */
+.scrolling{
+    overflow-x: auto;
+    border-radius: 0.25rem;
+    margin-bottom: 15px;
+}
+
+/* Tamaño scroll */
+.scrolling::-webkit-scrollbar {
+  width: 8px;
+}
+
+ /* Estilo barra scroll */
+.scrolling::-webkit-scrollbar-thumb {
+  background: #FFD000;
+  border-radius: 4px;
+}
+ /* Estilo track de scroll */
+.scrolling::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.footer-span {
+    font-family: 'Righteous';   
+}

@@ -1,45 +1,74 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			 baseUrl: 'https://www.swapi.tech/api/',
+			 baseImgUrl: 'https://starwars-visualguide.com/assets/img/',
+			 characters: [],
+			 planets: [],
+			 vehicles: [],
+			 singleCharacter: [],
+			 singlePlanet: [],
+			 singleVehicle: [],
+			 favorites: [],
+			 getSingle: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			getCharacters: () => {
+				fetch(getStore().baseUrl + 'people')
+					.then((res) => res.json())
+					.then((data) => setStore({characters: data.results }))
+					.catch((error) => console.log(error));
+				},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getSingleCharacter: (characterUrl) => {
+					fetch(characterUrl)
+					.then((res) => res.json())
+					.then((data) => setStore({ singleCharacter: data.result }));
+				},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		}
-	};
+			getPlanets: () => {
+				fetch(getStore().baseUrl + 'planets')
+					.then((res) => res.json())
+					.then((data) => setStore({planets: data.results }))
+					.catch((error) => console.log(error));
+				},
+				
+			getSinglePlanet: (planetUrl) => {
+					fetch(planetUrl)
+					.then((res) => res.json())
+					.then((data) => setStore({ singlePlanet: data.result }));
+				},
+
+			getVehicles: () => {
+				fetch(getStore().baseUrl + 'vehicles')
+					.then((res) => res.json())
+					.then((data) => setStore({vehicles: data.results }))
+					.
+					catch((error) => console.log(error));
+				},
+
+			getSingleVehicle: (vehicleUrl) => {
+					fetch(vehicleUrl)
+					.then((res) => res.json())
+					.then((data) => setStore({ singleVehicle: data.result }));
+				},
+
+			addFavorite: (favorite) => {
+			 		const newFavorites = getStore().favorites;
+			 		newFavorites.push(favorite);
+					setStore({ favorites: newFavorites });
+			 	},	
+
+			deleteFavorite: (favoriteIndex) => {
+				setStore({
+				favorites: getStore().favorites.filter(
+				(favorite, index) => index !== favoriteIndex
+				),
+			});
+			},
+		
+		},
+  };
 };
 
 export default getState;
