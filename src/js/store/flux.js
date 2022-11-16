@@ -4,10 +4,10 @@ const getState = ({ getStore, setStore }) => {
 			 baseUrl: 'https://www.swapi.tech/api/',
 			 baseImgUrl: 'https://starwars-visualguide.com/assets/img/',
 			 characters: [],
-			 planets: [],
+			 species: [],
 			 vehicles: [],
 			 singleCharacter: [],
-			 singlePlanet: [],
+			 singleSpecies: [],
 			 singleVehicle: [],
 			 favorites: [],
 			 getSingle: [],
@@ -26,17 +26,17 @@ const getState = ({ getStore, setStore }) => {
 					.then((data) => setStore({ singleCharacter: data.result }));
 				},
 
-			getPlanets: () => {
-				fetch(getStore().baseUrl + 'planets')
+			getSpecies: () => {
+				fetch(getStore().baseUrl + 'species')
 					.then((res) => res.json())
-					.then((data) => setStore({planets: data.results }))
+					.then((data) => setStore({species: data.results }))
 					.catch((error) => console.log(error));
 				},
 				
-			getSinglePlanet: (planetUrl) => {
-					fetch(planetUrl)
+			getSingleSpecies: (speciesUrl) => {
+					fetch(speciesUrl)
 					.then((res) => res.json())
-					.then((data) => setStore({ singlePlanet: data.result }));
+					.then((data) => setStore({ singleSpecies: data.result }));
 				},
 
 			getVehicles: () => {

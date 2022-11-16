@@ -6,14 +6,14 @@ import { getlist } from "../services/getlist.js";
 
 export const App = () => {
 	const [characters, setCharacters] = useState([]);
-	const [planets, setPlanets] = useState([]);
+	const [species, setSpecies] = useState([]);
 	const [vehicles, setVehicles] = useState([]);
 	useEffect(() => {
 		getlist("people").then((respuestajson) => {
 			setCharacters(respuestajson);
 		})
-		getlist("planets").then((respuestajson) => {
-			setPlanets(respuestajson);
+		getlist("species").then((respuestajson) => {
+			setSpecies(respuestajson);
 		})
 		getlist("vehicles").then((respuestajson) => {
 			setVehicles(respuestajson);
@@ -26,9 +26,9 @@ export const App = () => {
 				<div className="row scrolling flex-row flex-nowrap">
 			{characters.map(character => <Card name={character.name} uid={character.uid}/>)}
 				</div>			
-			<h2 className="text-danger mt-5 mb-3">Planets</h2>
+			<h2 className="text-danger mt-5 mb-3">Species</h2>
 				<div className="row">
-			{planets.map(planet => <Card name={planet.name} uid={planet.uid}/>)}
+			{species.map(species => <Card name={species.name} uid={species.uid}/>)}
 				</div>
 			<h2 className="text-danger mt-5 mb-3">Vehicles</h2>
 				<div className="row">

@@ -37,24 +37,24 @@ export const Home = () => {
         })}
       </div>
 
-      <h2 className="mt-5 py-3">PLANETS</h2>
+      <h2 className="mt-5 py-3">SPECIES</h2>
       <div className="row scrolling flex-row flex-nowrap">
-        {store.planets.map((planets) => {
+        {store.species.map((species) => {
           return (
-            <div className="col mb-5 mx-5 p-0 border rounded bg-light" key={planets.uid}>
+            <div className="col mb-5 mx-5 p-0 border rounded bg-light" key={species.uid}>
               <div className="card card-holder">
-                <img src={store.baseImgUrl + "planets/" + planets.uid + ".jpg"} className="card-img-top m-0 p-0" alt="..."/>
+                <img src={store.baseImgUrl + "species/" + species.uid + ".jpg"} className="card-img-top m-0 p-0" alt="..."/>
                 <div className="card-body">
-                  <h5 className="card-title">{planets.name}</h5>
+                  <h5 className="card-title">{species.name}</h5>
                 </div>
                 <div className="row px-3 pb-3">
                   <div className="d-flex justify-content-start col-10">
-                    <button className="btn btn-outline-dark" onClick={() => {actions.getSinglePlanet(planets.url); history.push("/singlePlanet");}}>
+                    <button className="btn btn-outline-dark" onClick={() => {actions.getSingleSpecies(species.url); history.push("/singleSpecies");}}>
                       Learn more!
                     </button>
                   </div>
                   <div className="d-flex justify-content-end col-2">
-                    <button className="btn btn-outline-warning" onClick={() => {actions.addFavorite(planets);}}>
+                    <button className="btn btn-outline-warning" onClick={() => {actions.addFavorite(species);}}>
                       <i class="fa fa-heart" aria-hidden="true"></i>
                     </button>
                   </div>

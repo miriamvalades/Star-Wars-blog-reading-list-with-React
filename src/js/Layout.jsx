@@ -6,7 +6,7 @@ import ScrollToTop from "./component/ScrollToTop.jsx";
 
 import { Home } from "./views/Home.jsx";
 import { SingleCharacter } from "./views/SingleCharacter.jsx";
-import { SinglePlanet } from "./views/SinglePlanet.jsx";
+import { SingleSpecies } from "./views/SingleSpecies.jsx";
 import { SingleVehicle } from "./views/SingleVehicle.jsx";
 
 import { Navbar } from "./component/Navbar.jsx";
@@ -28,8 +28,8 @@ const Layout = () => {
             <Route exact path="/singleCharacter">
               <SingleCharacter />
             </Route>
-            <Route exact path="/singlePlanet">
-              <SinglePlanet />
+            <Route exact path="/singleSpecies">
+              <SingleSpecies />
             </Route>
             <Route exact path="/singleVehicle">
               <SingleVehicle />
